@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.ConnectionToDB;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -48,22 +49,22 @@ public class WebElementsPage extends BasePage {
         smartphonesLink.click();
     }
 
-    public void searchAllTopSale() {
+    public void searchAllTopSale() throws IOException {
         String id;
         String names = "";
         String prices = "";
         for (WebElement option : list) {
             String str = String.format(String.valueOf(option.getAttribute("id")));
             id = str.replaceAll("[^-?0-9]+", "");
-            WebElement element = driver.findElement(By.xpath(".//*[@id='goods_price_block_"+ id +"'")); // 10026384
+            WebElement element = driver.findElement(By.xpath(".//*[@id='goods_price_block_"+ id +"']")); // 10026384
             prices = element.getText();
             List<WebElement> namesList = driver.findElements(By.xpath(".//a[contains(@onclick, \"document.fireEvent('goodsTitleClick', {extend_event: [{name: 'goods_id', value: "+ id +"}]}); return true\")]"));
             for (WebElement name : namesList) {
                 names = name.getText();
                 if (StringUtils.isNotEmpty(names) && StringUtils.isNotEmpty(prices)){
                     System.out.println(names + ","+ prices);
-//                    ConnectionToDB con = new ConnectionToDB();
-//                    con.putData(id, names, prices);
+                    ConnectionToDB con = new ConnectionToDB();
+                    con.putData(id, names, prices);
             }
 
         }

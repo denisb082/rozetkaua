@@ -1,5 +1,9 @@
 package utils;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 
@@ -9,8 +13,11 @@ import java.util.Properties;
 public class ConnectionToDB {
 
     private Connection connection;
-    public void putData(String id, String names, String prices){
+    public void putData(String id, String names, String prices) throws IOException {
         Properties properties = new Properties();
+        InputStream in = getClass().getClassLoader().getResourceAsStream("connectionToDB.properties");
+        properties.load(in);
+        in.close();
         String url = properties.getProperty("dbUrl");
         String username = properties.getProperty("username");
         String password = properties.getProperty("password");
@@ -26,9 +33,9 @@ public class ConnectionToDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String sqlStr = "INSERT INTO top_sale VALUES ("+id+", "+names+", "+prices+")";
+        String sqlStr = "INSERT INTO top_sale (id, phone_name, price) VALUES ("+id+", "+names+", "+prices+");";
         try {
-            ResultSet resultSet = st.executeQuery(sqlStr);
+            st.executeUpdate(sqlStr);
         } catch (SQLException e) {
             e.printStackTrace();
         }
