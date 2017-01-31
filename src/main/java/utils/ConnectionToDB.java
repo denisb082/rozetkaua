@@ -1,4 +1,4 @@
-package com.rozetkatest.tests.utils;
+package utils;
 
 import java.sql.*;
 import java.util.Properties;
@@ -9,7 +9,7 @@ import java.util.Properties;
 public class ConnectionToDB {
 
     private Connection connection;
-    public void putData(String names, String prices){
+    public void putData(String id, String names, String prices){
         Properties properties = new Properties();
         String url = properties.getProperty("dbUrl");
         String username = properties.getProperty("username");
@@ -26,7 +26,7 @@ public class ConnectionToDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String sqlStr = "INSERT INTO top_sale VALUES (NULL, "+names+", "+prices+")";
+        String sqlStr = "INSERT INTO top_sale VALUES ("+id+", "+names+", "+prices+")";
         try {
             ResultSet resultSet = st.executeQuery(sqlStr);
         } catch (SQLException e) {
