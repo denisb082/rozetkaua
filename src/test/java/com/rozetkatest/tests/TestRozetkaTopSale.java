@@ -33,9 +33,5 @@ public class TestRozetkaTopSale extends BaseTest {
 
     }
 
-      /*  webElementsPage.clickOnSecondPage();
-        webElementsPage.searchAllTopSale();
-        webElementsPage.clickOnThirdPage();
-        webElementsPage.searchAllTopSale();
-*/
+
 }

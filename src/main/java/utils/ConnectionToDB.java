@@ -33,7 +33,7 @@ public class ConnectionToDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String sqlStr = "INSERT INTO top_sale (id, phone_name, price) VALUES ("+id+", "+names+", "+prices+");";
+        String sqlStr = "INSERT INTO top_sale (id, phone_name, price)" + "VALUES ("+id+", '"+names+"', '"+prices+"');";
         try {
             st.executeUpdate(sqlStr);
         } catch (SQLException e) {

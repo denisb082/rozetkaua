@@ -14,22 +14,9 @@ public class BasePage {
 
     protected WebDriver driver;
 
-    /*Alert alert;*/
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
         }
     }
 
- /*   public boolean isAlertPresent(Alert alert) {
-
-        try {
-            *//*WebDriverWait wait = new WebDriverWait(driver, 5);
-            wait.until(ExpectedConditions.alertIsPresent());
-            alert = driver.switchTo().alert();*//*
-            driver.switchTo().alert();
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }*/
