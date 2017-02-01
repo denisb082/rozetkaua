@@ -1,10 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="RT">
-    <test name="TestRozetkaTopSale">
-        <packages>
-            <package name="com.rozetka.tests"/>
-        </packages>
+<test name="TestRozetkaTopSale">
+    <packages>
+        <package name="com.rozetka.tests"/>
+    </packages>
 
-    </test>
+</test>
 
 </suite>

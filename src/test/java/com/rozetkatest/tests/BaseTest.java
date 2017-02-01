@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
     public WebDriver driver;
 
-    public static final String URL = "http://rozetka.com.ua/mobile-phones/c80003/preset=smartfon/";
+    public static final String URL = "http://rozetka.com.ua";
 
     @BeforeSuite
     public void setUp() throws MalformedURLException {

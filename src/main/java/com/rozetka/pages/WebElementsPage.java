@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import utils.ConnectionToDB;
 
@@ -36,12 +37,19 @@ public class WebElementsPage extends BasePage {
     private WebElement pageTwo;
 
 
-
-    public void goToSmartphonesList(){
-        phonesTvElectronicsLink.click();
+    public void actionWithMainMenuElement()
+    {
+        Actions builder = new Actions(driver);
+        builder.moveToElement(phonesTvElectronicsLink).click().build().perform();
         phonesLink.click();
         smartphonesLink.click();
     }
+
+/*    public void goToSmartphonesList() {
+        phonesTvElectronicsLink.click();
+        phonesLink.click();
+        smartphonesLink.click();
+    }*/
 
     public void searchAllTopSale() throws IOException {
         String id;
@@ -67,11 +75,11 @@ public class WebElementsPage extends BasePage {
 
     }
 
-    public void clickOnNextPage() {
+    public void searchingTopSale() throws IOException {
         for (int i = 1; i<4; i++){
             WebElement page = driver.findElement(By.xpath(".//*[@id='page"+ i +"']"));
             page.click();
-
+            searchAllTopSale();
         }
     }
 /*    public void clickOnSecondPage(){
