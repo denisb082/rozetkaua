@@ -52,7 +52,6 @@ public class WebElementsPage extends BasePage {
             for (WebElement name : namesList) {
                 names = name.getText();
                 if (StringUtils.isNotEmpty(names) && StringUtils.isNotEmpty(prices)){
-                    System.out.println(id + "," + names + ","+ prices);
                     ConnectionToDB con = new ConnectionToDB();
                     con.putData(id, names, prices);
             }
@@ -67,6 +66,11 @@ public class WebElementsPage extends BasePage {
         for (int i = 1; i<4; i++){
             WebElement page = driver.findElement(By.xpath(".//*[@id='page"+ i +"']"));
             page.click();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             searchAllTopSale();
         }
     }
