@@ -30,12 +30,6 @@ public class WebElementsPage extends BasePage {
     @FindBy(xpath = ConstantsElements.TOP_SALE_XPATH)
     private List<WebElement> list; // xpath fo top sale
 
-    @FindBy(linkText = "page=1")
-    private WebElement pageOne;
-
-    @FindBy(linkText = "page=3")
-    private WebElement pageTwo;
-
 
     public void actionWithMainMenuElement()
     {
@@ -44,12 +38,6 @@ public class WebElementsPage extends BasePage {
         phonesLink.click();
         smartphonesLink.click();
     }
-
-/*    public void goToSmartphonesList() {
-        phonesTvElectronicsLink.click();
-        phonesLink.click();
-        smartphonesLink.click();
-    }*/
 
     public void searchAllTopSale() throws IOException {
         String id;
@@ -82,24 +70,5 @@ public class WebElementsPage extends BasePage {
             searchAllTopSale();
         }
     }
-/*    public void clickOnSecondPage(){
-        pageTwoLink.click();
-    }
-
-    public void clickOnThirdPage(){
-        pageThreeLink.click();
-    }*/
-
-//    public void allertDismiss(){
-//
-//        try {
-//            WebDriverWait wait = new WebDriverWait(driver, 3);
-//            wait.until(ExpectedConditions.alertIsPresent());
-//            Alert alertMiss = driver.switchTo().alert();
-//            alertMiss.dismiss();
-//        }
-//        finally {
-//        }
-//    }
 
 }
