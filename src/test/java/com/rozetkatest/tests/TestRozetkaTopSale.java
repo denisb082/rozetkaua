@@ -19,7 +19,7 @@ public class TestRozetkaTopSale extends BaseTest {
 
 
     @Test
-    public void getTopSaleTest() throws InterruptedException, IOException {
+    public void getTopSaleTestOne() throws InterruptedException, IOException {
 
             WebElementsPage webElementsPage = new WebElementsPage(driver);
             webElementsPage.actionWithMainMenuElement();
