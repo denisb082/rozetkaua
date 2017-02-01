@@ -26,12 +26,6 @@ public class WebElementsPage extends BasePage {
     @FindBy(xpath = ConstantsElements.SMARTPHONES_LINK)
     private WebElement smartphonesLink;
 
-/*    @FindBy (xpath = ConstantsElements.PAGE_TWO_LINK)
-    private WebElement pageTwoLink;
-
-    @FindBy (xpath = ConstantsElements.PAGE_THREE_LINK)
-    private WebElement pageThreeLink;*/
-
     @FindBy(xpath = ConstantsElements.TOP_SALE_XPATH)
     private List<WebElement> list; // xpath fo top sale
 
@@ -77,6 +71,7 @@ public class WebElementsPage extends BasePage {
         for (int i = 1; i<4; i++){
             WebElement page = driver.findElement(By.xpath(".//*[@id='page"+ i +"']"));
             page.click();
+
         }
     }
 /*    public void clickOnSecondPage(){
