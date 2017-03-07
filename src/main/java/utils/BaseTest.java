@@ -1,4 +1,4 @@
-package com.rozetkatest.tests;
+package utils;
 
 
 import org.openqa.selenium.WebDriver;
@@ -20,8 +20,9 @@ public class BaseTest {
     public void setUp() throws MalformedURLException {
         System.setProperty("webdriver.chrome.driver", "C:\\denis\\Amazon\\chrome\\chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         driver.get(URL);
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
 

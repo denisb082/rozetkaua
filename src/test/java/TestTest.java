@@ -1,9 +1,14 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by beznisco on 26.01.2017.
  */
+/*
 public class TestTest {
 
     public static String url = "http://rozetka.ua";
@@ -21,3 +26,17 @@ public class TestTest {
 
     }
 }
+*/
+
+//public class Box<T>{
+//    final List<T> list;
+//    Box(List<T> list) {
+//        this.list=list;
+//    }
+//
+//    public static void main(String[] args) {
+//        Box<Object> b = new ArrayList<>(Arrays.asList("1",2,"3"));
+//        System.out.println(b.list());
+//
+//    }
+//}

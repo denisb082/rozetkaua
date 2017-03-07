@@ -1,8 +1,13 @@
 package com.rozetkatest.tests;
 
 import com.rozetka.pages.WebElementsPage;
+import entity.SmartPhone;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import java.io.IOException;
+import utils.BaseTest;
+import utils.ConnectionToDB;
+
+import java.util.List;
 
 
 /**
@@ -12,11 +17,15 @@ public class TestRozetkaTopSale extends BaseTest {
 
 
     @Test
-    public void getTopSaleTestOne() throws InterruptedException, IOException {
-
+    public void getTopSaleTestOne() {
+        List<SmartPhone> smartPhoneList;
+        ConnectionToDB connectionToDB = new ConnectionToDB();
         WebElementsPage webElementsPage = new WebElementsPage(driver);
-        webElementsPage.actionWithMainMenuElement();
-        webElementsPage.searchingTopSale();
-
+        webElementsPage.openToSmartPhonePage();
+        smartPhoneList = webElementsPage.getSmartPhoneList();
+        Assert.assertNotNull(smartPhoneList, "No top sale phones");
+        for (int i = 0; i < smartPhoneList.size(); i++){
+            Assert.assertTrue(connectionToDB.putData(smartPhoneList.get(i).getId(), smartPhoneList.get(i).getTitle(), smartPhoneList.get(i).getPrice()));
+        }
     }
 }
